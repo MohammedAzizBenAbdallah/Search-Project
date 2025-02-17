@@ -1,0 +1,5 @@
+{
+  "watch": ["engine.js", "pages/"],
+  "ext": "js,html",
+  "ignore": ["node_modules/"]
+}

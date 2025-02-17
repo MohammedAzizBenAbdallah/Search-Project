@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+      ul {
+        gap: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      li {
+        background-color: rgb(232, 228, 228);
+        text-align: center;
+        width: 100%;
+        border: 2px solid black;
+        padding: 2px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      ol {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 3px;
+      }
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        background-color: bisque;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Recipe Title: {%RECIPE_TITLE%}</h1>
+    <!-- <img alt="" src="" /> -->
+    <h2>Ingredients:</h2>
+    <ul class="ingr">
+      {%INGREDIENTS%}
+    </ul>
+    <div>
+      <h3>steps:</h3>
+      {%GUIDE%}
+    </div>
+  </body>
+</html>

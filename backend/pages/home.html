@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recipe Finder</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:ital,wght@0,200..800;1,200..800&family=Pinyon+Script&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Vibur&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // const get_random_recipe = async () => {
+        const URL = "https://api.spoonacular.com/recipes";
+        const API_KEY = "71236e9887274d7196baa9a06a7f1660";
+        const random_recipe_url = `${URL}/random?apiKey=${API_KEY}`;
+
+        try {
+          const res = await fetch(random_recipe_url);
+          const data = await res.json();
+
+          console.log(data.recipes[0]); // Debugging
+          document.getElementById("recipeSearchInput").placeholder =
+            data.recipes[0].title;
+        } catch (error) {
+          console.error("Error fetching recipe:", error);
+        }
+      };
+    </script>
+
+    <style>
+      body {
+        height: 100vh;
+        overflow-x: hidden;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        background-color: white;
+      }
+      h1 {
+        display: inline;
+      }
+      #sub-title {
+        color: rgb(158, 80, 11);
+      }
+      .header {
+        background-color: bisque;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border: 3px solid black;
+        font-family: "Pinyon Script", serif;
+        letter-spacing: 3px;
+      }
+      .recipe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 49%;
+        width: 100%;
+      }
+      .ingredients {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+        width: 100%;
+      }
+      #recipeSearch {
+        text-align: center;
+        /* padding: 10px; */
+      }
+      .recipeSearchBar {
+        padding: 5px;
+        border: 3px solid black;
+        border-radius: 10px;
+        width: 20%;
+        /* height: fit-content; */
+        height: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+      #recipeSearchInput {
+        border: none;
+        height: 100%;
+        width: 80%;
+      }
+      .scope {
+        /* border: 1px solid red; */
+        height: 100%;
+        width: 100%;
+      }
+      .recipe-button {
+        height: 100%;
+        background-color: transparent;
+        border: none;
+      }
+      .recipe-button:hover {
+        cursor: pointer;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      .horizontal-line {
+        color: rgb(209, 123, 18);
+        width: 99%;
+        height: 0.5%;
+        background-color: rgb(215, 131, 28);
+      }
+    </style>
+  </head>
+
+  <body onload="get_random_recipe()">
+    <div class="header">
+      <h1 id="title">
+        Welcome to the
+        <h1 id="sub-title">Best Recipe Finder</h1>
+      </h1>
+    </div>
+    <div class="recipe">
+      <h2 style="color: rgb(199, 126, 36); font-family: cursive">
+        Have a recipe in mind ?
+      </h2>
+      <p>Search our large collection of delicious recipes 😋</p>
+      <div class="recipeSearchBar">
+        <input
+          type="text"
+          id="recipeSearchInput"
+          placeholder="Loading recipe..."
+        />
+        <button class="recipe-button" onclick="handleRecipeSubmit()">
+          <img
+            class="scope"
+            src="https://th.bing.com/th/id/OIP._RTO9yp1xH5aQA0vS7fpHAHaHW?rs=1&pid=ImgDetMain"
+            alt=""
+            srcset=""
+          />
+        </button>
+      </div>
+    </div>
+    <div class="horizontal-line">.</div>
+    <div class="ingredients">
+      <h2 style="color: rgb(199, 126, 36); font-family: cursive">
+        Not sure what to cook ?
+      </h2>
+      <p>
+        No problem ! just type what ingredients you have and we'll do the rest
+        ✨
+      </p>
+      <div class="recipeSearchBar">
+        <input
+          type="text"
+          id=""
+          style="border: none; height: 100%; width: 80%"
+          placeholder="Loading recipe..."
+        />
+        <button class="recipe-button">
+          <img
+            class="scope"
+            src="https://th.bing.com/th/id/OIP._RTO9yp1xH5aQA0vS7fpHAHaHW?rs=1&pid=ImgDetMain"
+            alt=""
+            srcset=""
+          />
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const handleRecipeSubmit = () => {
+      const recipe = document.getElementById("recipeSearchInput").value;
+      console.log(recipe);
+    };
+  </script>
+</html>
