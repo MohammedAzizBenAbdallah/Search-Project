@@ -28,8 +28,8 @@ function App() {
   const [searchType, setType] = useState("name");
   const [inputValue, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [object, setObject] = useState([]);
-
+  const [recipe, setRecipe] = useState({});
+  const [recipes, setRecipes] = useState([]);
   return (
     <StyledApp>
       <h1>Recipe Finder</h1>
@@ -38,6 +38,8 @@ function App() {
           // disabled={searchType === "name"}
           onClick={() => {
             setType("name");
+            setValue("");
+            setRecipes([]);
           }}
           className={searchType === "name" ? "selected" : "unselected"}
         >
@@ -45,7 +47,11 @@ function App() {
         </button>
         <button
           // disabled={searchType === "ingredients"}
-          onClick={() => setType("ingredients")}
+          onClick={() => {
+            setType("ingredients");
+            setValue("");
+            setRecipe({});
+          }}
           className={searchType === "ingredients" ? "selected" : "unselected"}
         >
           search by ingredients
@@ -54,12 +60,25 @@ function App() {
       <Input value={inputValue} onChange={(e) => setValue(e.target.value)} />
       <button
         onClick={() => {
-          fetchSpoonacular(searchType, inputValue, setObject, setIsLoading);
+          fetchSpoonacular(
+            searchType,
+            inputValue,
+            setRecipe,
+            setRecipes,
+            setIsLoading
+          );
         }}
       >
         Get result
       </button>
-      <AppContent isLoading={isLoading} object={object} type={searchType} />
+      <AppContent
+        isLoading={isLoading}
+        recipe={recipe}
+        recipes={recipes}
+        setRecipe={setRecipe}
+        setRecipes={setRecipes}
+        type={searchType}
+      />
     </StyledApp>
   );
 }

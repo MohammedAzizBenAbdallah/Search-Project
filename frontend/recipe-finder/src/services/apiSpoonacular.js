@@ -1,6 +1,12 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
-export async function fetchSpoonacular(type, query, setObject, setLoading) {
+export async function fetchSpoonacular(
+  type,
+  query,
+  setRecipe,
+  setRecipes,
+  setLoading
+) {
   setLoading(true);
   const url =
     type === "name"
@@ -10,7 +16,8 @@ export async function fetchSpoonacular(type, query, setObject, setLoading) {
   try {
     const response = await axios.get(url);
     console.log(response.data);
-    setObject(response.data);
+    if (type === "name") setRecipe(response.data);
+    else setRecipes(response.data);
     setLoading(false);
   } catch (e) {
     setLoading(false);

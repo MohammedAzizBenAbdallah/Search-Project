@@ -4,18 +4,25 @@ import { useEffect } from "react";
 import Spinner from "../ui/Spinner";
 import Recipe from "./Recipe";
 import Ingredients from "./Ingredients";
-function AppContent({ isLoading, object, type }) {
+function AppContent({
+  isLoading,
+  recipe,
+  setRecipe,
+  recipes,
+  setRecipes,
+  type,
+}) {
   useEffect(
     function () {
       console.log(isLoading);
-      console.log(object);
-      console.log(type);
+      if (type === "name") console.log(recipe);
+      else console.log(recipes);
     },
     [isLoading]
   );
   if (isLoading) return <Spinner />;
-  if (type === "name") return <Recipe recipe={object} />;
-  if (type === "ingredients") return <Ingredients recipes={object} />;
+  if (type === "name") return <Recipe recipe={recipe} />;
+  if (type === "ingredients") return <Ingredients recipes={recipes} />;
 }
 
 export default AppContent;
