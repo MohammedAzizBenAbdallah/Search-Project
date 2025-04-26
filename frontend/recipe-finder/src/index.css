@@ -1,11 +1,11 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+:root {
+  font-family: "Englebert", cursive;
+  font-weight: 600;
   line-height: 1.5;
-  font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #353614;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,7 +22,15 @@ a:hover {
   color: #535bf2;
 }
 
+body input,
+button {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 body {
+  background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://static.vecteezy.com/system/resources/previews/037/253/917/non_2x/ai-generated-a-free-cooking-scene-with-spices-and-pots-free-photo.jpg");
   margin: 0;
   display: flex;
   place-items: center;
@@ -47,7 +55,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #e5ff64;
 }
 button:focus,
 button:focus-visible {
@@ -65,9 +73,12 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-} */
+}
+input {
+  border: none;
+}
 
-.selected {
+/* .selected {
   background-color: rgb(24, 206, 24);
 }
 .selected:hover {
@@ -91,4 +102,4 @@ body {
   background-color: antiquewhite;
   margin: 0;
   font-family: "Courier New", Courier, monospace;
-}
+} */

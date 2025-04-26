@@ -11,7 +11,14 @@ const Recipes = styled.div`
   justify-content: center;
 `;
 function Ingredients({ recipes }) {
-  const data = recipes != {} ? recipes : [];
+  const data = recipes;
+  if (data.length === 0)
+    return (
+      <h2>
+        Not Sure what to cook ? <br /> No problem! just type what ingredients
+        you have and we'll do the rest
+      </h2>
+    );
   console.log(data);
   return (
     <Recipes>

@@ -2,7 +2,7 @@
 import AppContent from "./components/AppContent";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import "./index.css";
+import "./App.css";
 import { fetchSpoonacular } from "./services/apiSpoonacular";
 const StyledApp = styled.div`
   gap: 10px;
@@ -32,7 +32,23 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   return (
     <StyledApp>
-      <h1>Recipe Finder</h1>
+      <h1
+        style={{
+          color: "#d9df1f",
+          textShadow: `
+    0 0 7px #d9df1f,
+    0 0 10px #d9df1f,
+    0 0 21px #d9df1f,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa
+  `,
+        }}
+      >
+        Recipe finder
+      </h1>
       <Buttons>
         <button
           // disabled={searchType === "name"}
